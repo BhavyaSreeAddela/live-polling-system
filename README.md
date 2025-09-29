@@ -14,7 +14,7 @@ Live Poll is a real-time polling web application that allows teachers to create 
   - Join poll sessions by entering name
   - View poll questions and submit answers
   - See final poll results
-- Responsive and easy to use UI designed in Figma
+
 
 ## Technologies Used
 - React.js for frontend UI development
