@@ -1,0 +1,184 @@
+:root {
+  /* Color Tokens */
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-background: #FFFFFF;
+  --color-card-border: #A78BFA;
+  --color-card-background: #F9FAFB;
+  --color-text-primary: #000000;
+  --color-text-secondary: #6B7280;
+  --color-timer-urgent: #DC2626;
+  --color-input-background: #F3F4F6;
+  --color-input-text: #374151;
+
+  /* Spacing Tokens */
+  --spacing-2: 8px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+
+  /* Border Radius */
+  --radius-button: 24px;
+  --radius-card: 16px;
+  --radius-input: 12px;
+
+  /* Typography */
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 40px;
+
+  /* Line Heights */
+  --line-height-base: 24px;
+  --line-height-lg: 28px;
+  --line-height-xl: 44px;
+
+  /* Shadows */
+  --shadow-button: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Typography Classes */
+.heading-main {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  line-height: var(--line-height-xl);
+  color: var(--color-text-primary);
+}
+
+.heading-sub {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  color: var(--color-text-secondary);
+}
+
+.text-timer {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  line-height: var(--line-height-lg);
+  color: var(--color-timer-urgent);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  padding: 12px 24px;
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow-button);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--color-card-background);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.card-selected {
+  border: 2px solid var(--color-card-border);
+}
+
+/* Input Styles */
+.input {
+  background-color: var(--color-input-background);
+  border-radius: var(--radius-input);
+  padding: 14px 16px;
+  font-size: var(--font-size-base);
+  color: var(--color-input-text);
+  width: 100%;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--spacing-12);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-24);
+  }
+}
+
+/* Role Selection Cards */
+.role-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-12);
+}
+
+.role-card {
+  width: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-4px);
+}
+
+.stack > * + * {
+  margin-top: var(--spacing-8);
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease;
+}
